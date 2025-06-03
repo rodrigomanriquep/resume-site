@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Projects</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      text-align: center;
+      padding: 2rem 1rem;
+    }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+
+    .project-card {
+      background-color: #ccc;
+      border: 3px solid #000;
+      box-shadow: 4px 4px #000;
+      padding: 1.5rem;
+      font-family: 'Press Start 2P', monospace;
+      font-size: 0.7rem;
+      text-align: left;
+      color: #000;
+      text-shadow: 1px 1px #fff;
+    }
+
+    .project-title {
+      font-size: 0.9rem;
+      margin-bottom: 0.5rem;
+      text-align: center;
+    }
+
+    .project-card a {
+      color: #000;
+      text-decoration: underline;
+    }
+
+    .project-link {
+      display: inline-block;
+      margin-top: 2rem;
+      padding: 1rem 2rem;
+      font-family: 'Press Start 2P', monospace;
+      background-color: #ccc;
+      border: 3px solid #000;
+      box-shadow: 4px 4px #000;
+      text-decoration: none;
+      color: #000;
+      text-shadow: 1px 1px #fff;
+      transition: background-color 0.2s;
+    }
+
+    .project-link:hover {
+      background-color: #eee;
+    }
+
+    .btn-back {
+      margin-top: 3rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1 class="title">My Projects</h1>
+
+    <div class="projects-grid">
+
+      <div class="project-card">
+        <div class="project-title">📧 EmailManager</div>
+        Java Spring Boot app to manage emails stored in a database. Focused on CRUD operations and backend structure.
+        <br><br>
+        <a href="https://github.com/rodrigomanriquep/EmailManager" target="_blank">View on GitHub →</a>
+      </div>
+
+      <div class="project-card">
+        <div class="project-title">🏥 OCMS</div>
+        A PHP-based clinic management system with patient, appointment, and admin features. Built using vanilla PHP.
+        <br><br>
+        <a href="https://github.com/rodrigomanriquep/OCMS" target="_blank">View on GitHub →</a>
+      </div>
+
+      <div class="project-card">
+        <div class="project-title">🌐 INFO1213 Projects</div>
+        Early HTML websites from course assignments: `info1213a1` and `info1213a2`. Focused on structure, tables, and links.
+        <br><br>
+        <a href="https://github.com/rodrigomanriquep/info1213a1" target="_blank">a1 →</a> |
+        <a href="https://github.com/rodrigomanriquep/info1213a2" target="_blank">a2 →</a>
+      </div>
+
+      <div class="project-card">
+        <div class="project-title">🛠️ WebDev Fork</div>
+        Forked an HTML/CSS learning repository for frontend practice and tweaking layouts.
+        <br><br>
+        <a href="https://github.com/rodrigomanriquep/webdev" target="_blank">View on GitHub →</a>
+      </div>
+
+    </div>
+
+    <a class="project-link" href="https://github.com/rodrigomanriquep?tab=repositories" target="_blank">
+      🔎 Explore All My GitHub Projects
+    </a>
+
+    <a href="index.html" class="btn btn-back">← Back to Menu</a>
+  </div>
+</body>
+</html>

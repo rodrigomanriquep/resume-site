@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Test Lab</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Press Start 2P', monospace;
+      background-color: #1a1a1a;
+      color: #fff;
+      overflow-x: hidden;
+    }
+
+    .container {
+      position: relative;
+      text-align: center;
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 2rem;
+      z-index: 2;
+      position: relative;
+    }
+
+    .lab-block {
+      width: 100px;
+      height: 100px;
+      background: linear-gradient(45deg, #b00000 25%, #ff3030 25%, #ff3030 50%, #b00000 50%, #b00000 75%, #ff3030 75%, #ff3030);
+      background-size: 20px 20px;
+      border: 4px solid #550000;
+      box-shadow: 5px 5px #000;
+      margin: 1rem auto;
+      cursor: pointer;
+      transition: transform 0.1s;
+    }
+
+    .lab-block:hover {
+      box-shadow: 0 0 10px #ff0000, 5px 5px #000;
+    }
+
+    .lab-block:active {
+      transform: scale(0.95);
+    }
+
+    .redstone-switch {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 2rem auto;
+      background: #7c0a02;
+      color: #fff;
+      width: 180px;
+      height: 50px;
+      border: 3px solid #000;
+      box-shadow: 4px 4px #000;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .redstone-switch.on {
+      background: #ff0000;
+    }
+
+    .console {
+      background-color: #000;
+      color: #0f0;
+      font-family: monospace;
+      width: 90%;
+      max-width: 500px;
+      height: 100px;
+      padding: 1rem;
+      margin: 2rem auto;
+      border: 2px solid #0f0;
+      overflow-y: auto;
+      font-size: 0.75rem;
+    }
+
+    .command-input {
+      width: 90%;
+      max-width: 500px;
+      margin: 0 auto;
+      display: block;
+      padding: 0.5rem;
+      background: #333;
+      color: #0f0;
+      border: 2px solid #0f0;
+      font-family: monospace;
+      font-size: 0.75rem;
+    }
+
+    .particle {
+      position: absolute;
+      font-size: 1.5rem;
+      animation: rise 1s ease-out forwards;
+      pointer-events: none;
+      z-index: 5;
+    }
+
+    @keyframes rise {
+      0% { opacity: 1; transform: translateY(0) scale(1); }
+      100% { opacity: 0; transform: translateY(-100px) scale(0.5); }
+    }
+
+    #dark-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(5, 5, 5, 0.6);
+      pointer-events: none;
+      opacity: 1;
+      transition: opacity 0.4s ease;
+      z-index: 1;
+    }
+
+    .btn {
+      margin-top: 2rem;
+      background-color: #ccc;
+      color: #000;
+      padding: 1rem;
+      text-decoration: none;
+      box-shadow: 4px 4px #000;
+      border: 3px solid #000;
+      display: inline-block;
+      transition: background-color 0.2s ease;
+    }
+
+    .btn:hover {
+      background-color: #eee;
+    }
+  </style>
+</head>
+<body>
+  <div id="dark-overlay"></div>
+
+  <div class="container">
+    <h1 class="title">Test Lab</h1>
+
+    <p class="text">🧱 Click the test block!</p>
+    <div class="lab-block" onclick="alert('💥 Block activated! You just mined a Redstone.')"></div>
+
+    <div class="redstone-switch" onclick="toggleRedstone(this)">Redstone OFF</div>
+
+    <p class="text">💬 Enter a Minecraft-style command:</p>
+    <input class="command-input" type="text" placeholder="/say Hello world!" onkeydown="handleCommand(event)" />
+
+    <div class="console" id="console-log">[System] Welcome to Test Lab</div>
+
+    <a href="index.html" class="btn btn-back">← Back to Menu</a>
+
+    <div id="particle-container"></div>
+  </div>
+
+  <script>
+    function toggleRedstone(element) {
+      const overlay = document.getElementById("dark-overlay");
+      const isOn = element.classList.toggle("on");
+
+      element.textContent = isOn ? "Redstone ON" : "Redstone OFF";
+      overlay.style.opacity = isOn ? "0" : "1";
+
+      if (isOn) {
+        launchRedstoneParticles();
+      }
+    }
+
+    function handleCommand(event) {
+      if (event.key === "Enter") {
+        const input = event.target;
+        const command = input.value.trim();
+        if (!command) return;
+
+        const consoleLog = document.getElementById("console-log");
+        consoleLog.innerHTML += `<br>> ${command}`;
+        input.value = "";
+      }
+    }
+
+    function launchRedstoneParticles() {
+      const container = document.getElementById("particle-container");
+      const count = 10;
+
+      for (let i = 0; i < count; i++) {
+        const particle = document.createElement("div");
+        particle.className = "particle";
+        particle.textContent = "🟥";
+        particle.style.left = `${Math.random() * 100}%`;
+        particle.style.top = `${Math.random() * 60 + 20}px`;
+        container.appendChild(particle);
+        setTimeout(() => particle.remove(), 1000);
+      }
+    }
+  </script>
+</body>
+</html>

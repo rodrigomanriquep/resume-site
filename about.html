@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About Me</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    body {
+      background-color: #1a1a1a;
+      color: #fff;
+      font-family: 'Press Start 2P', monospace;
+      padding: 2rem;
+      margin: 0;
+      position: relative;
+      min-height: 100vh;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .title {
+      font-size: 1.5rem;
+      color: #eee;
+      text-shadow: 3px 3px #000;
+    }
+
+    .text {
+      margin-top: 1rem;
+      font-size: 0.7rem;
+      color: #ccc;
+    }
+
+    .inventory-wrapper {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 3rem;
+      margin-top: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .avatar-slot {
+      width: 240px;
+      height: 240px;
+      background-color: #ccc;
+      border: 4px solid #000;
+      box-shadow: 4px 4px #000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .avatar-slot img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .inventory {
+      display: grid;
+      grid-template-columns: repeat(5, 80px);
+      grid-auto-rows: 80px;
+      gap: 10px;
+    }
+
+    .slot {
+      width: 80px;
+      height: 80px;
+      background-color: #ccc;
+      border: 3px solid #000;
+      box-shadow: 2px 2px #000;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      cursor: default;
+    }
+
+    .slot-label {
+      font-size: 0.45rem;
+      color: #000;
+      text-align: center;
+      margin-top: 0.2rem;
+      line-height: 1;
+    }
+
+    .label {
+      margin-top: 2rem;
+      font-size: 0.7rem;
+      text-shadow: 1px 1px #000;
+    }
+
+    .inventory-footer {
+      position: absolute;
+      bottom: 2rem;
+      left: 50%;
+      transform: translateX(-50%);
+      text-align: center;
+    }
+
+    .btn {
+      background-color: #ccc;
+      color: #000;
+      padding: 1rem;
+      text-decoration: none;
+      box-shadow: 4px 4px #000;
+      border: 3px solid #000;
+      transition: all 0.2s ease;
+      display: inline-block;
+      margin-top: 1rem;
+    }
+
+    .btn:hover {
+      background-color: #eee;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1 class="title">About Me</h1>
+    <p class="text">
+      Welcome to my Minecraft-style inventory. Here's what I carry as a Software Developer in Test.
+    </p>
+
+    <div class="inventory-wrapper">
+      <!-- Avatar image -->
+      <div class="avatar-slot" title="Rodrigo the Developer">
+        <img src="assets/me.png" alt="Rodrigo Avatar" />
+      </div>
+
+      <!-- Inventory items with labels -->
+      <div class="inventory">
+        <div class="slot">🖥️ <span class="slot-label">Playwright</span></div>
+        <div class="slot">🔍 <span class="slot-label">Debugger</span></div>
+        <div class="slot">🧪 <span class="slot-label">SQL</span></div>
+        <div class="slot">⚙️ <span class="slot-label">Jenkins</span></div>
+        <div class="slot">🪲 <span class="slot-label">Jira</span></div>
+        <div class="slot">📜 <span class="slot-label">Selenium</span></div>
+        <div class="slot">🧰 <span class="slot-label">Dev Tools</span></div>
+        <div class="slot">📦 <span class="slot-label">.NET</span></div>
+        <div class="slot">☕ <span class="slot-label">Java</span></div>
+        <div class="slot">🧵 <span class="slot-label">Threads</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="inventory-footer">
+    <div class="label">Rodrigo Manrique – SDET & Tech Enthusiast</div>
+    <div class="label">Tools Equipped: Playwright, Jenkins, SQL, .NET, C#</div>
+    <a href="index.html" class="btn btn-back">← Back to Menu</a>
+  </div>
+</body>
+</html>
